@@ -25,4 +25,4 @@ Variant B significantly outperformed Variant A, demonstrating a measurable incre
 Roll out Variant B to all users to improve overall conversion performance.
 
 ## Dashboard[
-(https://public.tableau.com/app/profile/martin.ngare)
+(https://public.tableau.com/app/profile/martin.ngare/viz/Globox_Final_Mastery_Project_Masterschool/ConversionRateAverageamountspenttheusersCountry_)
