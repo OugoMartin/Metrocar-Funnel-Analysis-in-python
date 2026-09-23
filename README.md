@@ -1,28 +1,36 @@
-# A/B Testing Analysis on User Conversion Rates
+# Metrocar Funnel Analysis in Python
 
-## Overview
-Analyzed an A/B test to evaluate whether a new product variant (B) improves user conversion rates compared to the control (A), using Python and statistical testing.
+A product-analytics case study for measuring user progression through a ride-booking funnel and identifying where users drop out.
 
-## Dataset
-- Total Users: 52,314  
-- Group A: 26,102 users  
-- Group B: 26,212 users  
+## Business question
+How effectively do users move from opening the app to completing a ride, and which stage represents the largest loss in the funnel?
 
-## Tools
-Python (Pandas, NumPy, SciPy), Tableau, Jupyter Notebook  
+## Funnel
+The Python script defines four stages:
+1. `app_opened`
+2. `ride_requested`
+3. `driver_assigned`
+4. `ride_completed`
 
-## Key Results
-- Conversion Rate (A): 11.8%  
-- Conversion Rate (B): 13.1%  
-- Absolute Lift: +1.3%  
-- Relative Lift: +11.0%  
-- P-value: 0.032 (statistically significant at 95% confidence)  
+It calculates stage counts, stage-to-stage conversion rates, drop-off rates, overall completion, identifies the largest drop, creates funnel visualizations, and exports a metrics summary.
 
-## Conclusion
-Variant B significantly outperformed Variant A, demonstrating a measurable increase in conversion rates.
+## Primary artifact
+- `Metrocar Funnel Analysis in python.py` — analysis script.
 
-## Recommendation
-Roll out Variant B to all users to improve overall conversion performance.
+## Expected input
+The script expects `metrocar_funnel_analysis_query.csv`, which is not currently committed to this repository. Because the source data is absent, this README does not claim numerical conversion results.
 
-## Dashboard[
-(https://public.tableau.com/app/profile/martin.ngare/viz/Globox_Final_Mastery_Project_Masterschool/ConversionRateAverageamountspenttheusersCountry_)
+## Important correction
+The previous README described an unrelated A/B test with 52,314 users and claimed that Variant B significantly outperformed Variant A. Those claims were not supported by the Metrocar script in this repository and have been removed.
+
+## Reproducibility issue
+The script currently imports `matplotlib as plt` before using `plt.figure()`; it later imports `matplotlib.pyplot as plt`. Move the pyplot import to the top before plotting when the source is next revised. The funnel-count calculation should also be validated against the actual input schema because `df.notnull().sum()` counts every dataframe column, not only the four declared funnel stages.
+
+## Next improvements
+Commit or document access to the source dataset, validate one user/event definition per funnel stage, add segment analysis, save charts to an `outputs/` directory, and add tests for funnel calculations.
+
+## Skills demonstrated
+Python · pandas · Product Analytics · Funnel Analysis · Conversion Analysis · Data Visualization
+
+## Author
+Martin Ngare
